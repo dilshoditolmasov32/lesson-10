@@ -52,7 +52,28 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const navItems = ["Home", "Navbar", "About", "Login"];
+const navItems = [
+  {
+    id: 1,
+    title: "Home",
+    url: "/",
+  },
+  {
+    id: 2,
+    title: "About",
+    url: "/about",
+  },
+  {
+    id: 3,
+    title: "Navbar",
+    url: "/navbar",
+  },
+  {
+    id: 4,
+    title: "Login",
+    url: "/register",
+  },
+];
 
 export default function SearchAppBar() {
   return (
@@ -79,8 +100,8 @@ export default function SearchAppBar() {
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                <NavLink to={`/${item}`}> {item}</NavLink>
+              <Button key={item.id} sx={{ color: "#fff" }}>
+                <NavLink to={item.url}> {item.title}</NavLink>
               </Button>
             ))}
           </Box>

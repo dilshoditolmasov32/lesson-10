@@ -16,10 +16,9 @@ function Home() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`/products?limit=${count * 5}`)
-      .then((res) => console.log(res))
-      // .then((res) => setData(res.data.products))
-      .catch((res) => console.log(res))
+      .get(`/products?limit=${count * 4}`)
+      .then((res) => setData(res.data.products))
+      .catch((res) => console.log(res.data))
       .finally(() => setLoading(false));
   }, [count]);
 
@@ -38,7 +37,11 @@ function Home() {
       </Swiper>
 
       <Products loading={loading} data={data} />
-      <button onClick={() => setCount((p) => p + 1)}>Learn More</button>
+      <div className="container">
+        <button onClick={() => setCount((p) => p + 1)} className="btn-button">
+          Learn More
+        </button>
+      </div>
     </div>
   );
 }

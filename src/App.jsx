@@ -17,7 +17,6 @@ import SearchAppBar from "./components/navbar/SearchAppBar";
 function App() {
   return (
     <>
-      <Navbar />
       <SearchAppBar />
       <Routes>
         <Route path="/" element={<Home />} />
