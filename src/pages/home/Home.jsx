@@ -16,7 +16,7 @@ function Home() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`/products?limit=${count * 4}`)
+      .get(`/products?limit=4&skip=${count * 4}`)
       .then((res) => setData(res.data.products))
       .catch((res) => console.log(res.data))
       .finally(() => setLoading(false));
